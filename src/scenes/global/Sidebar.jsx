@@ -99,14 +99,17 @@ const Sidebar = () => {
 					</Box>
 
 					{/* LOGOUT */}
-					<MenuItem
-						style={{
-							color: colors.grey[100],
-							marginTop: 'auto',
-							justifySelf: 'flex-end',
-						}}
-						icon={<LogoutIcon />}>
-						<Typography>Logout</Typography>
+					<MenuItem>
+						<Item
+							title="Logout"
+							component={Link}
+							to="/login"
+							style={{
+								color: colors.grey[100],
+								marginTop: 'auto',
+								justifySelf: 'flex-end',
+							}}
+							icon={<LogoutIcon />}></Item>
 					</MenuItem>
 				</Menu>
 			</ProSidebar>

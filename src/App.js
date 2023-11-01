@@ -5,6 +5,7 @@ import Sidebar from './scenes/global/Sidebar';
 import Dashboard from './scenes/dashboard';
 import Products from './scenes/products';
 import Form from './scenes/form';
+import LoginPage from './scenes/login';
 import { CssBaseline, ThemeProvider } from '@mui/material';
 import { ColorModeContext, useMode } from './theme';
 
@@ -24,6 +25,7 @@ function App() {
 							<Route path="/" element={<Dashboard />} />
 							<Route path="/products" element={<Products />} />
 							<Route path="/form" element={<Form />} />
+							<Route path="/login" element={<LoginPage />} />
 						</Routes>
 					</main>
 				</div>
