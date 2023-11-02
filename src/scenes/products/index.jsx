@@ -1,5 +1,7 @@
 import { Box, Button } from '@mui/material';
 import { DataGrid, GridToolbar } from '@mui/x-data-grid';
+import DeleteIcon from '@mui/icons-material/Delete';
+import EditIcon from '@mui/icons-material/Edit';
 import { tokens } from '../../theme';
 import { mockDataProducts } from '../../data/mockData';
 import Header from '../../components/Header';
@@ -45,10 +47,26 @@ const Products = () => {
 			field: 'img',
 			headerName: 'Product Image',
 			flex: 1,
+			renderCell: (params) => <Button variant="contained">Tampilkan</Button>,
 		},
 		{
 			headerName: 'Action',
 			flex: 1,
+			renderCell: (params) => (
+				<Box display="flex" gap="2rem">
+					<Button
+						variant="contained"
+						sx={{ backgroundColor: colors.greenAccent[400] }}>
+						<EditIcon />
+					</Button>
+
+					<Button
+						variant="contained"
+						sx={{ backgroundColor: colors.redAccent[400] }}>
+						<DeleteIcon />
+					</Button>
+				</Box>
+			),
 		},
 	];
 
