@@ -30,7 +30,7 @@ const Dashboard = () => {
 					alignItems="center"
 					justifyContent="center">
 					<StatBox
-						title="12,361"
+						title="1361"
 						subtitle="Total Visitor"
 						progress="0.75"
 						increase="+12%"
