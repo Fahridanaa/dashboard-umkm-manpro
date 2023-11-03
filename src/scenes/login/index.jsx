@@ -4,14 +4,17 @@ import Header from '../../components/Header';
 import { Formik } from 'formik';
 
 export default function LoginPage() {
+	const handleFormSubmit = (values) => {
+		console.log(values);
+	};
 	return (
 		<Box m="16rem" bgcolor="#141b2d" borderRadius="20px">
 			<Box display="flex" justifyContent="center" alignItems="center">
 				<Header title="DASHBOARD" />
 			</Box>
 
-			<Formik>
-				{({ handleSubmit, handleBlur, handleChange }) => (
+			<Formik onSubmit={handleFormSubmit} initialValues={initialValues}>
+				{({ values, handleSubmit, handleBlur, handleChange }) => (
 					<form
 						name="form"
 						onSubmit={handleSubmit}
@@ -22,6 +25,7 @@ export default function LoginPage() {
 								variant="filled"
 								type="text"
 								label="Username"
+								value={values.username}
 								onBlur={handleBlur}
 								onChange={handleChange}
 								name="username"
@@ -31,6 +35,7 @@ export default function LoginPage() {
 								variant="filled"
 								type="password"
 								label="Password"
+								value={values.password}
 								onBlur={handleBlur}
 								onChange={handleChange}
 								name="password"
@@ -52,3 +57,8 @@ export default function LoginPage() {
 		</Box>
 	);
 }
+
+const initialValues = {
+	username: '',
+	password: '',
+};
