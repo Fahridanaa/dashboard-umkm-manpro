@@ -109,6 +109,8 @@ const Sidebar = () => {
 							style={{
 								color: colors.grey[100],
 							}}
+							selected={selected}
+							setSelected={setSelected}
 							icon={<LogoutIcon />}></Item>
 					</MenuItem>
 				</Menu>
