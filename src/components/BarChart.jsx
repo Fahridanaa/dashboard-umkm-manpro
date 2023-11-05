@@ -120,9 +120,6 @@ const BarChart = ({ isDashboard = false }) => {
 				},
 			]}
 			role="application"
-			barAriaLabel={function (e) {
-				return e.id + ': ' + e.formattedValue + ' in country: ' + e.indexValue;
-			}}
 		/>
 	);
 };
