@@ -8,6 +8,7 @@ import Form from './scenes/form';
 import LoginPage from './scenes/login';
 import { CssBaseline, ThemeProvider } from '@mui/material';
 import { ColorModeContext, useMode } from './theme';
+import Image from './assets/umkm.jpg';
 
 function App() {
 	const [theme, colorMode] = useMode();
@@ -20,7 +21,15 @@ function App() {
 				<CssBaseline />
 				<div className="app">
 					{location.pathname !== '/login' && <Sidebar isSidebar={isSidebar} />}
-					<main className="content">
+					<main
+						className="content"
+						{...(location.pathname === '/login' && {
+							style: {
+								backgroundImage: 'url(' + Image + ')',
+								backgroundSize: 'cover',
+								backgroundRepeat: 'no-repeat',
+							},
+						})}>
 						{location.pathname !== '/login' && (
 							<Topbar setIsSidebar={setIsSidebar} />
 						)}

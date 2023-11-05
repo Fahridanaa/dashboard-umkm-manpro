@@ -5,6 +5,7 @@ import PersonIcon from '@mui/icons-material/Person';
 import TrafficIcon from '@mui/icons-material/Traffic';
 import Header from '../../components/Header';
 import StatBox from '../../components/StatBox';
+import BarChart from '../../components/BarChart';
 
 const Dashboard = () => {
 	const theme = useTheme();
@@ -76,6 +77,12 @@ const Dashboard = () => {
 							/>
 						}
 					/>
+				</Box>
+				<Box m="20px" gridColumn="span 9">
+					<Header title="Pengunjung" />
+					<Box height="55vh">
+						<BarChart />
+					</Box>
 				</Box>
 			</Box>
 		</Box>

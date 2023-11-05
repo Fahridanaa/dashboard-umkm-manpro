@@ -12,6 +12,7 @@ import * as yup from 'yup';
 import useMediaQuery from '@mui/material/useMediaQuery';
 import Header from '../../components/Header';
 import { Link } from 'react-router-dom';
+import MapsComponent from '../../components/maps/maps';
 
 const Form = () => {
 	const isNonMobile = useMediaQuery('(min-width:600px)');
@@ -41,6 +42,7 @@ const Form = () => {
 							display="grid"
 							gap="30px"
 							gridTemplateColumns="repeat(4, minmax(0, 1fr))"
+							gridTemplateRows="repeat(5, minmax(0, 1fr))"
 							sx={{
 								'& > div': { gridColumn: isNonMobile ? undefined : 'span 4' },
 							}}>
@@ -55,9 +57,10 @@ const Form = () => {
 								name="productName"
 								error={!!touched.productName && !!errors.productName}
 								helperText={touched.productName && errors.productName}
-								sx={{ gridColumn: 'span 4' }}
+								sx={{ gridColumn: '1 / span 2' }}
 							/>
-							<FormControl sx={{ gridColumn: 'span 4' }} variant="filled">
+							<MapsComponent />
+							<FormControl sx={{ gridColumn: 'span 2' }} variant="filled">
 								<InputLabel id="category-label">Category</InputLabel>
 								<Select
 									labelId="category-label"
@@ -78,7 +81,7 @@ const Form = () => {
 								name="email"
 								error={!!touched.email && !!errors.email}
 								helperText={touched.email && errors.email}
-								sx={{ gridColumn: 'span 4' }}
+								sx={{ gridColumn: '1 / span 2' }}
 							/>
 							<TextField
 								fullWidth
@@ -91,7 +94,7 @@ const Form = () => {
 								name="umkm"
 								error={!!touched.umkm && !!errors.umkm}
 								helperText={touched.umkm && errors.umkm}
-								sx={{ gridColumn: 'span 4' }}
+								sx={{ gridColumn: '1 / span 2' }}
 							/>
 							<TextField
 								fullWidth
@@ -104,7 +107,20 @@ const Form = () => {
 								name="phone"
 								error={!!touched.phone && !!errors.phone}
 								helperText={touched.phone && errors.phone}
-								sx={{ gridColumn: 'span 4' }}
+								sx={{ gridColumn: '1 / span 2' }}
+							/>
+							<TextField
+								fullWidth
+								variant="filled"
+								type="text"
+								label="Link Toko"
+								onBlur={handleBlur}
+								onChange={handleChange}
+								value={values.link}
+								name="phone"
+								error={!!touched.link && !!errors.link}
+								helperText={touched.link && errors.link}
+								sx={{ gridColumn: '3 / span 2' }}
 							/>
 						</Box>
 
@@ -138,12 +154,14 @@ const checkoutSchema = yup.object().shape({
 		.string()
 		.matches(phoneRegExp, 'Nomor HP tidak valid')
 		.required('required'),
+	link: yup.string().required('required'),
 });
 const initialValues = {
 	productName: '',
 	umkm: '',
 	email: '',
 	phone: '',
+	link: '',
 };
 
 export default Form;
